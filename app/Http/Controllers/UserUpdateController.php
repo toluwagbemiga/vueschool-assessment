@@ -25,7 +25,7 @@ class UserUpdateController extends Controller
             $subscriberData = [
                 'email' => $user->email,
                 'time_zone' => $user->timezone,
-                'name' => $user->firstname . ' ' . $user->lastname,
+                'name' => $user->name,
             ];
 
             // Create a new batch if needed
@@ -105,7 +105,7 @@ class UserUpdateController extends Controller
             $response = Http::post('https://third-party-api.com/update-individual', [
                 'email' => $user->email,
                 'time_zone' => $user->timezone,
-                'name' => $user->firstname . ' ' . $user->lastname,
+                'name' => $user->name,
             ]);
 
             if ($response->successful()) {
